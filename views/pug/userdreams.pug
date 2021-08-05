@@ -1,0 +1,70 @@
+doctype html
+html(lang='en-gb')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    // Bootstrap CSS
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1' crossorigin='anonymous')
+    title Profile
+    style.
+      footer {
+      text-align: center;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      }
+      {% load static %}
+      body {
+      font-family: sans-serif;
+      background: url('http://localhost:3000/public/moon_dreams.jpg');
+      background-size: 100% 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin-bottom: 40px;
+      }
+      h1, h2, p, div, table {
+      color: white;
+      margin-left: 20px;
+      }
+      h2 {
+      font-size: 3em;
+      }
+      .btn-primary {
+      margin-left: 20px;
+      }
+
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href='/home') NightNotes
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+          span.icon-bar
+          span.icon-bar
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+    .col-md-10
+      br
+      br
+      h1 Here's what you've dreamed so far 🌙
+      p
+        table
+            each n in dreams
+                tr
+                    td=n
+                    br
+        br
+        br
+        a.btn.btn-primary(type='button' href="/profile" role='button') Save a new dream
+        br
+        br
+        br
+    footer.footer.navbar-dark.bg-dark.fixed-bottom
+      .container
+        span.text-muted © NightNotes 2021
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')
