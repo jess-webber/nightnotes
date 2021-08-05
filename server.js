@@ -12,8 +12,6 @@ const auth = require('./auth.js');
 const app = express();
 app.set('view engine', 'pug');
 
-//const port = 3000
-
 app.use(cors())
 
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -45,3 +43,4 @@ myDB(async client => {
 app.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port ' + process.env.PORT);
 });
+
